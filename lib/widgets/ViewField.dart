@@ -20,7 +20,7 @@ class _ViewFieldState extends State<ViewField> {
         decoration: InputDecoration(
           // border: OutlineInputBorder(),
           border: InputBorder.none,
-          hintText: '0000000000000',
+          hintText: '000',
           contentPadding: EdgeInsets.all(10.0),
         ),
     );
