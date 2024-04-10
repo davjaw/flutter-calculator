@@ -33,9 +33,9 @@ class _HomePageState extends State<HomePage> {
           ),
           //output
           ValueListenableBuilder(
-              valueListenable: logic.equationNotifier,
+              valueListenable: logic.resultNotifier,
               builder: (context, value, child){
-                return ViewField(numbers: 0, fieldText: logic.inputValue, fontSize: 50.0);
+                return ViewField(numbers: 0, fieldText: value, fontSize: 50.0);
               }),
           // ViewField(numbers: 0, fieldText: logic.inputValue, fontSize: 30.0)
           // ViewField(numbers: 0, fieldText: logic.inputValue, fontSize: 50.0),
