@@ -17,8 +17,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(0, 0, 0, 110),
+        foregroundColor: Colors.white,
         title: const Text("Calculator"),
-        actions: [HistoryButton()],
+        actions: const [HistoryButton()],
         elevation: 10,
       ),
       body: const Column(
