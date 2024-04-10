@@ -1,41 +1,66 @@
 import 'package:flutter/material.dart';
+import 'package:lab02/model/CalculatorLogic.dart' as logic;
 
-class OutlinedButtonsTemplate extends StatelessWidget {
+class OutlinedButtonsTemplate extends StatefulWidget {
   final String buttonText;
-  const OutlinedButtonsTemplate({super.key, required this.buttonText});
+  VoidCallback onPressed;
 
+  OutlinedButtonsTemplate({super.key, required this.buttonText, required this.onPressed});
+
+  @override
+  _OutlinedButtonsTemplate createState() => _OutlinedButtonsTemplate();
+}
+class _OutlinedButtonsTemplate extends State<OutlinedButtonsTemplate>
+{
   @override
   Widget build(BuildContext context){
     return OutlinedButton(
-      onPressed: () => {},
+      onPressed: widget.onPressed,
       style: OutlinedButton.styleFrom(
-        fixedSize: buttonText != "H" ? const Size(80, 80): const Size(10,10),
+        fixedSize: widget.buttonText != "H" ? const Size(80, 80): const Size(10,10),
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.white,
         textStyle: const TextStyle(fontSize: 30),
         shape: RoundedRectangleBorder(
-          borderRadius: buttonText != "H" ? BorderRadius.zero : const BorderRadius.all(
+          borderRadius: widget.buttonText != "H" ? BorderRadius.zero : const BorderRadius.all(
             Radius.circular(100)
           ),
         ),
       ),
-      child: Text(buttonText),
+      child: Text(widget.buttonText),
     );
   }
 }
 
-class SevenNineButtons extends StatelessWidget {
+class SevenNineButtons extends StatefulWidget {
   const SevenNineButtons({super.key});
 
   @override
+  _SevenNineButtons createState() => _SevenNineButtons();
+
+}
+class _SevenNineButtons extends State<SevenNineButtons>{
+  @override
   Widget build(BuildContext context){
-    return const Row(
+    return Row(
       children: [
-        OutlinedButtonsTemplate(buttonText: "7"),
+        OutlinedButtonsTemplate(buttonText: "7", onPressed: () => {
+          setState(() {
+            logic.displ("7");
+          }),
+        }),
         SizedBox(width: 20),
-        OutlinedButtonsTemplate(buttonText: "8"),
+        OutlinedButtonsTemplate(buttonText: "8", onPressed: () => {
+          setState((){
+            logic.displ("8");
+          }),
+        }),
         SizedBox(width: 20),
-        OutlinedButtonsTemplate(buttonText: "9")
+        OutlinedButtonsTemplate(buttonText: "9", onPressed: () => {
+          setState(() {
+            logic.displ("9");
+          }),
+        })
       ],
     );
   }
@@ -46,6 +71,8 @@ class HistoryButton extends StatelessWidget{
   
   @override
   Widget build(BuildContext context){
-    return const OutlinedButtonsTemplate(buttonText: "H");
+    return OutlinedButtonsTemplate(buttonText: "H", onPressed: () => {
+      //switch view to history
+    });
   }
 }

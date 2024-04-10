@@ -12,9 +12,9 @@ class TextButtonsTemplate extends StatefulWidget {
   _TextButtonsTemplate createState() => _TextButtonsTemplate();
 }
 
-class _TextButtonsTemplate extends State<TextButtonsTemplate>{
+class _TextButtonsTemplate extends State<TextButtonsTemplate> {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
         widget.onPressed();
@@ -27,9 +27,9 @@ class _TextButtonsTemplate extends State<TextButtonsTemplate>{
         foregroundColor: Colors.white,
         textStyle: const TextStyle(fontSize: 30),
         shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.zero,
-          ),
+          borderRadius: BorderRadius.zero,
         ),
+      ),
       child: Text(widget.text),
     );
   }
@@ -42,23 +42,36 @@ class OneThreeButtons extends StatefulWidget {
   _OneThreeButtons createState() => _OneThreeButtons();
 }
 
-class _OneThreeButtons extends State<OneThreeButtons>{
+class _OneThreeButtons extends State<OneThreeButtons> {
   @override
   Widget build(BuildContext context) {
     return Row(
       // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        TextButtonsTemplate(onPressed: () => {
-          setState(() {
-            logic.displ("1");
-            print(logic.inputValue);
-          }),
-        }, text: "1",
+        TextButtonsTemplate(
+          onPressed: () => {
+            setState(() {
+              logic.displ("1");
+            }),
+          },
+          text: "1",
         ),
         const SizedBox(width: 20),
-        TextButtonsTemplate(onPressed: () => {}, text: "2"),
+        TextButtonsTemplate(
+            onPressed: () => {
+                  setState(() {
+                    logic.displ("2");
+                  }),
+                },
+            text: "2"),
         const SizedBox(width: 20),
-        TextButtonsTemplate(onPressed: () => {}, text: "3")
+        TextButtonsTemplate(
+            onPressed: () => {
+                  setState(() {
+                    logic.displ("3");
+                  }),
+                },
+            text: "3")
       ],
     );
   }
