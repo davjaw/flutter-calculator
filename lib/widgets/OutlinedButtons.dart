@@ -10,7 +10,7 @@ class OutlinedButtonsTemplate extends StatelessWidget {
     return OutlinedButton(
       onPressed: () => {},
       style: OutlinedButton.styleFrom(
-        fixedSize: buttonText != "H" ? Size(80, 80): const Size(10,10),
+        fixedSize: buttonText != "H" ? const Size(80, 80): const Size(10,10),
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.white,
         textStyle: const TextStyle(fontSize: 30),
