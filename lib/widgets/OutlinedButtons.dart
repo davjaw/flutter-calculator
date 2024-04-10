@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class OutlinedButtonsTemplate extends StatelessWidget {
@@ -9,12 +10,14 @@ class OutlinedButtonsTemplate extends StatelessWidget {
     return OutlinedButton(
       onPressed: () => {},
       style: OutlinedButton.styleFrom(
-        fixedSize: const Size(80, 80),
+        fixedSize: buttonText != "H" ? Size(80, 80): const Size(10,10),
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.white,
         textStyle: const TextStyle(fontSize: 30),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.zero,
+        shape: RoundedRectangleBorder(
+          borderRadius: buttonText != "H" ? BorderRadius.zero : const BorderRadius.all(
+            Radius.circular(100)
+          ),
         ),
       ),
       child: Text(buttonText),
@@ -36,5 +39,14 @@ class SevenNineButtons extends StatelessWidget {
         OutlinedButtonsTemplate(buttonText: "9")
       ],
     );
+  }
+}
+
+class HistoryButton extends StatelessWidget{
+  const HistoryButton({super.key});
+  
+  @override
+  Widget build(BuildContext context){
+    return const OutlinedButtonsTemplate(buttonText: "H");
   }
 }

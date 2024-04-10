@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:lab02/widgets/Keyboard.dart';
+import 'package:lab02/widgets/OutlinedButtons.dart';
 import 'package:lab02/widgets/ViewField.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,6 +18,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Calculator"),
+        actions: [HistoryButton()],
         elevation: 10,
       ),
       body: const Column(
@@ -26,6 +28,7 @@ class _HomePageState extends State<HomePage> {
           Keyboard(),
         ],
       ),
+      backgroundColor: const Color.fromRGBO(25, 43, 161, 100),
     );
   }
 }

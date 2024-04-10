@@ -18,11 +18,14 @@ class _ViewFieldState extends State<ViewField> {
         keyboardType: TextInputType.number,
         textAlign: TextAlign.right,
         readOnly: true,
-        style: TextStyle(fontSize: widget.fontSize),
         decoration: InputDecoration(
           // border: OutlineInputBorder(),
           border: InputBorder.none,
           hintText: widget.fieldText,
+          hintStyle: TextStyle(
+            fontSize: widget.fontSize,
+            color: Colors.white,
+          ),
           contentPadding: const EdgeInsets.all(10.0),
         ),
     );
