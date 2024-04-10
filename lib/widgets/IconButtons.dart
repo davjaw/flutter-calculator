@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lab02/model/CalculatorLogic.dart' as logic;
 
 class IconButtonsTemplate extends StatefulWidget {
   VoidCallback onPressed;
@@ -51,27 +52,43 @@ class _FunctionalButtons extends State<FunctionalButtons>{
     return Column(
       children: [
         IconButtonsTemplate(
-          onPressed: () {},
+          onPressed: () => {
+            setState(() {
+              logic.buildNumbers("+");
+            }),
+          },
           buttonColor: Colors.green,
           buttonIcon: Icons.add,
           tooltipOnButton: "Add",
         ),
         SizedBox(height: 20),
         IconButtonsTemplate(
-          onPressed: () {},
+          onPressed: () => {
+            setState(() {
+              logic.buildNumbers("-");
+            }),
+          },
           buttonColor: Colors.red,
           buttonIcon: Icons.remove,
           tooltipOnButton: "Minus",
         ),
         SizedBox(height: 20),
         IconButtonsTemplate(
-            onPressed: () {},
+            onPressed: () => {
+              setState(() {
+                logic.buildNumbers("*");
+              }),
+            },
             buttonColor: Colors.orange,
             buttonImage: AssetImage('lib/icons/xmark-solid.png'),
             tooltipOnButton: "Multiply"),
         SizedBox(height: 20),
         IconButtonsTemplate(
-            onPressed: () {},
+            onPressed: () => {
+              setState(() {
+                logic.buildNumbers("=");
+              }),
+            },
             buttonColor: Colors.blue,
             buttonImage: AssetImage('lib/icons/equals-solid.png'),
             tooltipOnButton: "Equals"),

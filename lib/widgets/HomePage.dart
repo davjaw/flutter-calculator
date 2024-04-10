@@ -26,14 +26,14 @@ class _HomePageState extends State<HomePage> {
         children: [
           // input
           ValueListenableBuilder<String>(
-            valueListenable: logic.inputValueNotifier,
+            valueListenable: logic.equationNotifier,
             builder: (context, value, child) {
               return ViewField(numbers: 0, fieldText: value, fontSize: 30.0);
             },
           ),
           //output
           ValueListenableBuilder(
-              valueListenable: logic.inputValueNotifier,
+              valueListenable: logic.equationNotifier,
               builder: (context, value, child){
                 return ViewField(numbers: 0, fieldText: logic.inputValue, fontSize: 50.0);
               }),

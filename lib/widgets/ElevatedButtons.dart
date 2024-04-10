@@ -43,19 +43,19 @@ class _FourSixSevenButtons extends State<FourSixSevenButtons>{
       children: [
         ElevatedButtonsTemplate(buttonText: "4", onPressed: () =>{
           setState(() {
-            logic.displ("4");
+            logic.buildNumbers("4");
           }),
         }),
         SizedBox(width: 20),
         ElevatedButtonsTemplate(buttonText: "5", onPressed: () => {
           setState(() {
-            logic.displ("5");
+            logic.buildNumbers("5");
           }),
         }),
         SizedBox(width: 20),
         ElevatedButtonsTemplate(buttonText: "6", onPressed: () => {
           setState(() {
-            logic.displ("6");
+            logic.buildNumbers("6");
           }),
         }),
       ],
@@ -76,7 +76,7 @@ class _ZeroButton extends State<ZeroButton>{
       children: [
         ElevatedButtonsTemplate(buttonText: "0", onPressed: () => {
           setState(() {
-            logic.displ("0");
+            logic.buildNumbers("0");
           }),
         })
       ]

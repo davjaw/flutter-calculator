@@ -46,19 +46,19 @@ class _SevenNineButtons extends State<SevenNineButtons>{
       children: [
         OutlinedButtonsTemplate(buttonText: "7", onPressed: () => {
           setState(() {
-            logic.displ("7");
+            logic.buildNumbers("7");
           }),
         }),
         SizedBox(width: 20),
         OutlinedButtonsTemplate(buttonText: "8", onPressed: () => {
           setState((){
-            logic.displ("8");
+            logic.buildNumbers("8");
           }),
         }),
         SizedBox(width: 20),
         OutlinedButtonsTemplate(buttonText: "9", onPressed: () => {
           setState(() {
-            logic.displ("9");
+            logic.buildNumbers("9");
           }),
         })
       ],

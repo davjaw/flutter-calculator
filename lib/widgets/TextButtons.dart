@@ -51,7 +51,7 @@ class _OneThreeButtons extends State<OneThreeButtons> {
         TextButtonsTemplate(
           onPressed: () => {
             setState(() {
-              logic.displ("1");
+              logic.buildNumbers("1");
             }),
           },
           text: "1",
@@ -60,7 +60,7 @@ class _OneThreeButtons extends State<OneThreeButtons> {
         TextButtonsTemplate(
             onPressed: () => {
                   setState(() {
-                    logic.displ("2");
+                    logic.buildNumbers("2");
                   }),
                 },
             text: "2"),
@@ -68,7 +68,7 @@ class _OneThreeButtons extends State<OneThreeButtons> {
         TextButtonsTemplate(
             onPressed: () => {
                   setState(() {
-                    logic.displ("3");
+                    logic.buildNumbers("3");
                   }),
                 },
             text: "3")
