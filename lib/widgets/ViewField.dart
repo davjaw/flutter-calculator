@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ViewField extends StatefulWidget {
-  final int numbers;
+  final String numbers;
   final String fieldText;
   final double fontSize;
   const ViewField({super.key, required this.numbers, required this.fieldText, required this.fontSize});
@@ -19,7 +19,6 @@ class _ViewFieldState extends State<ViewField> {
         textAlign: TextAlign.right,
         readOnly: true,
         decoration: InputDecoration(
-          // border: OutlineInputBorder(),
           border: InputBorder.none,
           hintText: widget.fieldText,
           hintStyle: TextStyle(

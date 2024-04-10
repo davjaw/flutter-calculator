@@ -15,7 +15,9 @@ class OutlinedButtonsTemplate extends StatelessWidget {
         foregroundColor: Colors.white,
         textStyle: const TextStyle(fontSize: 30),
         shape: RoundedRectangleBorder(
-          borderRadius: buttonText != "H" ? BorderRadius.zero : const BorderRadius.all(
+          borderRadius: buttonText != "H" ? const BorderRadius.all(
+            Radius.circular(10),
+          ) : const BorderRadius.all(
             Radius.circular(100)
           ),
         ),

@@ -27,7 +27,9 @@ class IconButtonsTemplate extends StatelessWidget {
         fixedSize: const Size(80, 80),
         backgroundColor: Colors.deepPurple,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.zero,
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
         ),
       ),
       // textColor: Colors.black,
