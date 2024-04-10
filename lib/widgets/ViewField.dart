@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class ViewField extends StatefulWidget {
   final int numbers;
-  ViewField({super.key, required this.numbers});
+  final String fieldText;
+  final double fontSize;
+  const ViewField({super.key, required this.numbers, required this.fieldText, required this.fontSize});
 
   @override
   State<ViewField> createState() => _ViewFieldState();
@@ -16,12 +18,15 @@ class _ViewFieldState extends State<ViewField> {
         keyboardType: TextInputType.number,
         textAlign: TextAlign.right,
         readOnly: true,
-        style: TextStyle(fontSize: 24.0),
         decoration: InputDecoration(
           // border: OutlineInputBorder(),
           border: InputBorder.none,
-          hintText: '0000000000000',
-          contentPadding: EdgeInsets.all(10.0),
+          hintText: widget.fieldText,
+          hintStyle: TextStyle(
+            fontSize: widget.fontSize,
+            color: Colors.white,
+          ),
+          contentPadding: const EdgeInsets.all(10.0),
         ),
     );
   }
