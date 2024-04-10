@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:lab02/model/CalculatorLogic.dart' as logic;
 
-class TextButtonsTemplate extends StatelessWidget {
+class TextButtonsTemplate extends StatefulWidget {
+  // final Function? callback;
   VoidCallback onPressed;
   final String text;
+
   TextButtonsTemplate({super.key, required this.onPressed, required this.text});
 
   @override
+  _TextButtonsTemplate createState() => _TextButtonsTemplate();
+}
+
+class _TextButtonsTemplate extends State<TextButtonsTemplate>{
+  @override
   Widget build(BuildContext context){
     return TextButton(
-      onPressed: onPressed,
+      onPressed: () {
+        widget.onPressed();
+      },
       // minWidth: 90,
       // height: 90,
       style: TextButton.styleFrom(
@@ -20,20 +30,31 @@ class TextButtonsTemplate extends StatelessWidget {
             borderRadius: BorderRadius.zero,
           ),
         ),
-      child: Text(text),
+      child: Text(widget.text),
     );
   }
 }
 
-class OneThreeButtons extends StatelessWidget {
+class OneThreeButtons extends StatefulWidget {
   const OneThreeButtons({super.key});
 
+  @override
+  _OneThreeButtons createState() => _OneThreeButtons();
+}
+
+class _OneThreeButtons extends State<OneThreeButtons>{
   @override
   Widget build(BuildContext context) {
     return Row(
       // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        TextButtonsTemplate(onPressed: () => {}, text: "1"),
+        TextButtonsTemplate(onPressed: () => {
+          setState(() {
+            logic.displ("1");
+            print(logic.inputValue);
+          }),
+        }, text: "1",
+        ),
         const SizedBox(width: 20),
         TextButtonsTemplate(onPressed: () => {}, text: "2"),
         const SizedBox(width: 20),

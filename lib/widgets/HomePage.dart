@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:lab02/widgets/Keyboard.dart';
 import 'package:lab02/widgets/OutlinedButtons.dart';
 import 'package:lab02/widgets/ViewField.dart';
+import 'package:lab02/model/CalculatorLogic.dart' as logic;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,8 +10,8 @@ class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
-
 class _HomePageState extends State<HomePage> {
+  String inputValue = "0";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,11 +22,24 @@ class _HomePageState extends State<HomePage> {
         actions: const [HistoryButton()],
         elevation: 10,
       ),
-      body: const Column(
+      body: Column(
         children: [
-          ViewField(numbers: 0, fieldText: "Input", fontSize: 30.0),
-          ViewField(numbers: 0, fieldText: "Output", fontSize: 50.0),
-          Keyboard(),
+          // input
+          ValueListenableBuilder<String>(
+            valueListenable: logic.inputValueNotifier,
+            builder: (context, value, child) {
+              return ViewField(numbers: 0, fieldText: value, fontSize: 30.0);
+            },
+          ),
+          //output
+          ValueListenableBuilder(
+              valueListenable: logic.inputValueNotifier,
+              builder: (context, value, child){
+                return ViewField(numbers: 0, fieldText: logic.inputValue, fontSize: 50.0);
+              }),
+          // ViewField(numbers: 0, fieldText: logic.inputValue, fontSize: 30.0)
+          // ViewField(numbers: 0, fieldText: logic.inputValue, fontSize: 50.0),
+          const Keyboard(),
         ],
       ),
       backgroundColor: const Color.fromRGBO(25, 43, 161, 100),
