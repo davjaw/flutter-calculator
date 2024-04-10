@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
-import 'dart:math';
 
-var inputValue = "";
 var equation = "";
 var result = "";
-var secondNumber = "";
+
+List<String> equationHistory = [];
+
 bool isFunctionalButtonPressed = false;
 bool isEqualsPressed = false;
 
@@ -13,7 +13,7 @@ final ValueNotifier<String> equationNotifier = ValueNotifier<String>("");
 final ValueNotifier<String> resultNotifier = ValueNotifier<String>("");
 
 String calculateEquation(String inputEquation) {
-  List<String> tokens = inputEquation.split(RegExp(r'(\+|\-|\*|\/)')); // Split the inputEquation into tokens
+  List<String> tokens = inputEquation.split(RegExp(r'(\+|\-|\*|\/)'));
 
   List<String> operators = [];
   for (var i = 0; i < inputEquation.length; i++) {
@@ -44,6 +44,7 @@ void buildNumbers (providedButton){
   if (providedButton == "=") {
     result = calculateEquation(equation);
     print(result);
+    equationHistory.add("$equation = $result");
     resultNotifier.value = result;
     equation = "";
   } else {
@@ -51,16 +52,8 @@ void buildNumbers (providedButton){
     print("$equation ELSE");
     equationNotifier.value = equation;
   }
+  print(equationHistory);
 }
 
-String displayNumber (clickedNumber){
-  return clickedNumber;
-}
-
-void displ (String value) {
-  inputValue += value;
-  print("$inputValue inputValue and $value numValue");
-  inputValueNotifier.value = inputValue;
-}
 
 
