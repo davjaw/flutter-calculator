@@ -13,7 +13,9 @@ class ElevatedButtonsTemplate extends StatelessWidget {
         foregroundColor: Colors.white,
         textStyle: const TextStyle(fontSize: 30),
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.zero,
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
         ),
       ),
       onPressed: () => {},
