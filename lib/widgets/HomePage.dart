@@ -1,9 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lab02/widgets/TextButtons.dart';
-import 'package:lab02/widgets/IconButtons.dart';
+import 'package:flutter/widgets.dart';
+import 'package:lab02/widgets/Keyboard.dart';
 import 'package:lab02/widgets/ViewField.dart';
-import 'package:lab02/widgets/ElevatedButtons.dart';
-import 'package:lab02/widgets/OutlinedButtons.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,21 +16,16 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Calculator"),
+        title: const Text("Calculator"),
         elevation: 10,
       ),
-          body: Container(
-            // margin: EdgeInsets.all(50),
-              child: Row(
-                children: [FunctionalButtons()],
-              ),
-          ),
-          /*
-        child: const Align(
-          alignment: Alignment.topRight,
-          children: [FunctionalButtonsAlignment(),ButtonsAlignment()]
-        ),
-    */
+      body: const Column(
+        children: [
+          ViewField(numbers: 0, fieldText: "Input", fontSize: 30.0),
+          ViewField(numbers: 0, fieldText: "Output", fontSize: 50.0),
+          Keyboard(),
+        ],
+      ),
     );
   }
 }

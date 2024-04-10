@@ -9,17 +9,18 @@ class TextButtonsTemplate extends StatelessWidget {
   Widget build(BuildContext context){
     return TextButton(
       onPressed: onPressed,
-      // padding: EdgeInsets.fromLTRB(14, 10, 14, 10),
       // minWidth: 90,
       // height: 90,
       style: TextButton.styleFrom(
-        backgroundColor: Colors.grey,
-        foregroundColor: Colors.black,
-        textStyle: const TextStyle(fontSize: 30)
-      ),
+        fixedSize: const Size(80, 80),
+        backgroundColor: Colors.deepPurple,
+        foregroundColor: Colors.white,
+        textStyle: const TextStyle(fontSize: 30),
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.zero,
+          ),
+        ),
       child: Text(text),
-      // color: Colors.grey,
-      // textColor: Colors.black,
     );
   }
 }
@@ -29,11 +30,14 @@ class OneThreeButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children:[
-        Row(
-          children: [ TextButtonsTemplate(onPressed: () => {}, text: "1"), TextButtonsTemplate(onPressed: () => {}, text: "2"), TextButtonsTemplate(onPressed: () => {}, text: "3")],
-        ),
+    return Row(
+      // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        TextButtonsTemplate(onPressed: () => {}, text: "1"),
+        const SizedBox(width: 20),
+        TextButtonsTemplate(onPressed: () => {}, text: "2"),
+        const SizedBox(width: 20),
+        TextButtonsTemplate(onPressed: () => {}, text: "3")
       ],
     );
   }
