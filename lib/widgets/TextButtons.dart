@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lab02/model/CalculatorLogic.dart' as logic;
 
 class TextButtonsTemplate extends StatefulWidget {
-  // final Function? callback;
   VoidCallback onPressed;
   final String text;
 
@@ -19,8 +18,6 @@ class _TextButtonsTemplate extends State<TextButtonsTemplate> {
       onPressed: () {
         widget.onPressed();
       },
-      // minWidth: 90,
-      // height: 90,
       style: TextButton.styleFrom(
         fixedSize: const Size(80, 80),
         backgroundColor: Colors.deepPurple,

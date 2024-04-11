@@ -51,13 +51,13 @@ class _SevenNineButtons extends State<SevenNineButtons>{
             logic.buildNumbers("7");
           }),
         }),
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         OutlinedButtonsTemplate(buttonText: "8", onPressed: () => {
           setState((){
             logic.buildNumbers("8");
           }),
         }),
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         OutlinedButtonsTemplate(buttonText: "9", onPressed: () => {
           setState(() {
             logic.buildNumbers("9");
@@ -95,12 +95,12 @@ class _HistoryButton extends State<HistoryButton>{
 
             return Scaffold(
               appBar: AppBar(
-                title: Text("Equation history"),
+                title: const Text("Equation history"),
                 backgroundColor: const Color.fromRGBO(0, 0, 0, 110),
                 foregroundColor: Colors.white,
                 actions: [
                   IconButton(
-                    icon: Icon(Icons.delete),
+                    icon: const Icon(Icons.delete),
                     onPressed: () {
                       setState(() {
                         logic.clearHistory();

@@ -48,13 +48,13 @@ class _FourSixSevenButtons extends State<FourSixSevenButtons>{
             logic.buildNumbers("4");
           }),
         }),
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         ElevatedButtonsTemplate(buttonText: "5", onPressed: () => {
           setState(() {
             logic.buildNumbers("5");
           }),
         }),
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         ElevatedButtonsTemplate(buttonText: "6", onPressed: () => {
           setState(() {
             logic.buildNumbers("6");
