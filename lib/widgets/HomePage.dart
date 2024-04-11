@@ -11,8 +11,6 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 class _HomePageState extends State<HomePage> {
-  int _inputViewField = 0;
-  int _outputViewField = 0;
 
 
   @override
@@ -40,8 +38,6 @@ class _HomePageState extends State<HomePage> {
               builder: (context, value, child){
                 return ViewField(numbers: "0", fieldText: value, fontSize: 50.0);
               }),
-          // ViewField(numbers: 0, fieldText: logic.inputValue, fontSize: 30.0)
-          // ViewField(numbers: 0, fieldText: logic.inputValue, fontSize: 50.0),
           const Keyboard(),
         ],
       ),

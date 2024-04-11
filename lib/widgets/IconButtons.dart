@@ -37,7 +37,6 @@ class _IconButtonsTemplate extends State<IconButtonsTemplate>{
           ),
         ),
       ),
-      // textColor: Colors.black,
     );
   }
 }
@@ -63,7 +62,7 @@ class _FunctionalButtons extends State<FunctionalButtons>{
           buttonIcon: Icons.add,
           tooltipOnButton: "Add",
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         IconButtonsTemplate(
           onPressed: () => {
             setState(() {
@@ -74,7 +73,7 @@ class _FunctionalButtons extends State<FunctionalButtons>{
           buttonIcon: Icons.remove,
           tooltipOnButton: "Minus",
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         IconButtonsTemplate(
             onPressed: () => {
               setState(() {
@@ -82,9 +81,9 @@ class _FunctionalButtons extends State<FunctionalButtons>{
               }),
             },
             buttonColor: Colors.orange,
-            buttonImage: AssetImage('lib/icons/xmark-solid.png'),
+            buttonImage: const AssetImage('lib/icons/xmark-solid.png'),
             tooltipOnButton: "Multiply"),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         IconButtonsTemplate(
             onPressed: () => {
               setState(() {
@@ -92,7 +91,7 @@ class _FunctionalButtons extends State<FunctionalButtons>{
               }),
             },
             buttonColor: Colors.blue,
-            buttonImage: AssetImage('lib/icons/equals-solid.png'),
+            buttonImage: const AssetImage('lib/icons/equals-solid.png'),
             tooltipOnButton: "Equals"),
       ],
     );

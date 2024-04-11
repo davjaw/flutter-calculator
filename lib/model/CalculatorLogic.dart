@@ -60,7 +60,6 @@ void buildNumbers(providedButton) {
     equationNotifier.value = equation;
   }
   equationHistory = equationHistory.reversed.toList();
-  print(equationHistory);
 }
 
 void clearHistory () {
