@@ -17,7 +17,10 @@ String calculateEquation(String inputEquation) {
 
   List<String> operators = [];
   for (var i = 0; i < inputEquation.length; i++) {
-    if (inputEquation[i] == '+' || inputEquation[i] == '-' || inputEquation[i] == '*' || inputEquation[i] == '/') {
+    if (inputEquation[i] == '+' ||
+        inputEquation[i] == '-' ||
+        inputEquation[i] == '*' ||
+        inputEquation[i] == '/') {
       operators.add(inputEquation[i]);
     }
   }
@@ -39,21 +42,24 @@ String calculateEquation(String inputEquation) {
   return result.toString();
 }
 
-void buildNumbers (providedButton){
-
+void buildNumbers(providedButton) {
   if (providedButton == "=") {
     result = calculateEquation(equation);
-    print(result);
     equationHistory.add("$equation = $result");
     resultNotifier.value = result;
     equation = "";
+  } else if (providedButton == "+" ||
+      providedButton == "-" ||
+      providedButton == "*" ||
+      providedButton == "/") {
+    if (equation.isNotEmpty &&
+        !"+-*/".contains(equation.substring(equation.length - 1))) {
+      equation += providedButton;
+    }
   } else {
-    equation += providedButton ;
-    print("$equation ELSE");
+    equation += providedButton;
     equationNotifier.value = equation;
   }
+  equationHistory = equationHistory.reversed.toList();
   print(equationHistory);
 }
-
-
-

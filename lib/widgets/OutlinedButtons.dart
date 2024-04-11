@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lab02/model/CalculatorLogic.dart' as logic;
+import 'package:lab02/widgets/EquationsHistory.dart' as hButton;
 
 class OutlinedButtonsTemplate extends StatefulWidget {
   final String buttonText;
@@ -66,13 +67,52 @@ class _SevenNineButtons extends State<SevenNineButtons>{
   }
 }
 
-class HistoryButton extends StatelessWidget{
+class HistoryButton extends StatefulWidget {
   const HistoryButton({super.key});
-  
+
+  @override
+  _HistoryButton createState() => _HistoryButton();
+}
+
+class _HistoryButton extends State<HistoryButton>{
   @override
   Widget build(BuildContext context){
-    return OutlinedButtonsTemplate(buttonText: "H", onPressed: () => {
-      //switch view to history
+    return OutlinedButtonsTemplate(buttonText: "H", onPressed: () {
+      Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (BuildContext build) {
+            final tiles = logic.equationHistory.map(
+                  (equation) {
+                return ListTile(
+                  title: Text(
+                    equation,
+                    style: TextStyle(fontSize: 16.0),
+                  ),
+                );
+              },
+            ).toList();
+
+            return Scaffold(
+              appBar: AppBar(
+                title: Text("Equation History"),
+                backgroundColor: Theme.of(context).primaryColor,
+                actions: [
+                  IconButton(
+                    icon: Icon(Icons.delete),
+                    onPressed: () {
+                      setState(() {
+                        // logic.clearHistory(); // Clear the history
+                      });
+                      Navigator.pop(context); // Close the dialog
+                    },
+                  ),
+                ],
+              ),
+              body: ListView(children: tiles),
+            );
+          },
+        ),
+      );
     });
   }
 }
