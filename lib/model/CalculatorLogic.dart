@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:intl/intl.dart';
 
 var equation = "";
 var result = "";
@@ -37,15 +38,15 @@ String calculateEquation(String inputEquation) {
       result /= double.parse(tokens[i]);
     }
   }
-
+  String currentDate = DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
+  equationHistory.add("$inputEquation = ${result.toString()}\n$currentDate");
   return result.toString();
 }
 
 void buildNumbers(providedButton) {
   if (providedButton == "=") {
     result = calculateEquation(equation);
-    equationHistory.add("$equation = $result");
-    resultNotifier.value = result;
+    resultNotifier.value = result.split('\n')[0];
     equation = "";
   } else if (providedButton == "+" ||
       providedButton == "-" ||
@@ -59,7 +60,6 @@ void buildNumbers(providedButton) {
     equation += providedButton;
     equationNotifier.value = equation;
   }
-  equationHistory = equationHistory.reversed.toList();
 }
 
 void clearHistory () {
