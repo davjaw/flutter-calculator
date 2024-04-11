@@ -32,8 +32,7 @@ class _TextButtonsTemplate extends State<TextButtonsTemplate> {
             ),
           ),
         ),
-      ),
-      child: Text(widget.text),
+        child: Text(widget.text),
     );
   }
 }
