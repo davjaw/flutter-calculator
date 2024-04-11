@@ -84,10 +84,17 @@ class _HistoryButton extends State<HistoryButton>{
           builder: (BuildContext build) {
             final tiles = logic.equationHistory.map(
                   (equation) {
+                    List<String> parts = equation.split("\n");
+                    String fullEquation = parts[0];
+                    String date = parts[1];
                 return ListTile(
                   title: Text(
-                    equation,
-                    style: const TextStyle(fontSize: 18.0, color: Colors.white,),
+                    fullEquation,
+                    style: const TextStyle(fontSize: 18.0, color: Colors.white),
+                  ),
+                  subtitle: Text(
+                    date,
+                    style: const TextStyle(fontSize: 12.0, color: Colors.white),
                   ),
                 );
               },
@@ -110,7 +117,7 @@ class _HistoryButton extends State<HistoryButton>{
                   ),
                 ],
               ),
-              body: ListView(children: tiles),
+              body: ListView(children: tiles.reversed.toList()),
               backgroundColor: const Color.fromRGBO(25, 43, 161, 100),
             );
           },
