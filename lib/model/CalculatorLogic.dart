@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 
 var equation = "";
 var result = "";
-
 List<String> equationHistory = [];
 
 bool isFunctionalButtonPressed = false;
@@ -62,4 +61,8 @@ void buildNumbers(providedButton) {
   }
   equationHistory = equationHistory.reversed.toList();
   print(equationHistory);
+}
+
+void clearHistory () {
+  equationHistory = [];
 }
