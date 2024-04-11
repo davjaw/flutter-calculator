@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lab02/model/CalculatorLogic.dart' as logic;
-import 'package:lab02/widgets/EquationsHistory.dart' as hButton;
 
 class OutlinedButtonsTemplate extends StatefulWidget {
   final String buttonText;
@@ -88,7 +87,7 @@ class _HistoryButton extends State<HistoryButton>{
                 return ListTile(
                   title: Text(
                     equation,
-                    style: TextStyle(fontSize: 16.0),
+                    style: const TextStyle(fontSize: 18.0, color: Colors.white,),
                   ),
                 );
               },
@@ -96,21 +95,23 @@ class _HistoryButton extends State<HistoryButton>{
 
             return Scaffold(
               appBar: AppBar(
-                title: Text("Equation History"),
-                backgroundColor: Theme.of(context).primaryColor,
+                title: Text("Equation history"),
+                backgroundColor: const Color.fromRGBO(0, 0, 0, 110),
+                foregroundColor: Colors.white,
                 actions: [
                   IconButton(
                     icon: Icon(Icons.delete),
                     onPressed: () {
                       setState(() {
-                        // logic.clearHistory(); // Clear the history
+                        logic.clearHistory();
                       });
-                      Navigator.pop(context); // Close the dialog
+                      Navigator.pop(context);
                     },
                   ),
                 ],
               ),
               body: ListView(children: tiles),
+              backgroundColor: const Color.fromRGBO(25, 43, 161, 100),
             );
           },
         ),
