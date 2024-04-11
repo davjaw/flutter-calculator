@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:lab02/model/CalculatorLogic.dart' as logic;
 
-class TextButtonsTemplate extends StatelessWidget {
-  // final Callback callback;
-  VoidCallback callback;
+class TextButtonsTemplate extends StatefulWidget {
+  // final Function? callback;
+  VoidCallback onPressed;
   final String text;
-  TextButtonsTemplate({super.key, required this.text, required this.callback});
+
+  TextButtonsTemplate({super.key, required this.onPressed, required this.text});
 
   @override
-  Widget build(BuildContext context){
+  _TextButtonsTemplate createState() => _TextButtonsTemplate();
+}
+
+class _TextButtonsTemplate extends State<TextButtonsTemplate> {
+  @override
+  Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: () {
+        widget.onPressed();
+      },
+      // minWidth: 90,
+      // height: 90,
       style: TextButton.styleFrom(
         fixedSize: const Size(80, 80),
         backgroundColor: Colors.deepPurple,
@@ -22,23 +32,48 @@ class TextButtonsTemplate extends StatelessWidget {
             ),
           ),
         ),
-      child: Text(text),
+      ),
+      child: Text(widget.text),
     );
   }
 }
 
-class OneThreeButtons extends StatelessWidget {
+class OneThreeButtons extends StatefulWidget {
   const OneThreeButtons({super.key});
 
+  @override
+  _OneThreeButtons createState() => _OneThreeButtons();
+}
+
+class _OneThreeButtons extends State<OneThreeButtons> {
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        TextButtonsTemplate(callback: () => {}, text: "1", ),
+        TextButtonsTemplate(
+          onPressed: () => {
+            setState(() {
+              logic.buildNumbers("1");
+            }),
+          },
+          text: "1",
+        ),
         const SizedBox(width: 20),
-        TextButtonsTemplate(callback: () => {}, text: "2"),
+        TextButtonsTemplate(
+            onPressed: () => {
+                  setState(() {
+                    logic.buildNumbers("2");
+                  }),
+                },
+            text: "2"),
         const SizedBox(width: 20),
-        TextButtonsTemplate(callback: () => {}, text: "3")
+        TextButtonsTemplate(
+            onPressed: () => {
+                  setState(() {
+                    logic.buildNumbers("3");
+                  }),
+                },
+            text: "3")
       ],
     );
   }
